@@ -19,7 +19,7 @@ public class Day15_OrangeHRM_Login {
 //    And logout the application
 //    Then verify the logout is successful
 
-    @Test
+    @Test(groups = "minor_regression_group")
     public void orangeLoginTest(){
 
         //    Given user is the application login page
