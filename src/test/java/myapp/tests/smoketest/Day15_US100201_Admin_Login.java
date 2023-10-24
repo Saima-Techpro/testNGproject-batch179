@@ -9,7 +9,7 @@ import myapp.utilities.WaitUtils;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class US100201_Admin_Login {
+public class Day15_US100201_Admin_Login {
 //    As admin, I should be able to log in the application https://www.bluerentalcars.com/
 //    Admin email: jack1@gmail.com
 //    Admin password: 12345
