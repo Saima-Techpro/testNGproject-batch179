@@ -8,7 +8,7 @@ public class Day13_DependsOnMethods {
     public void homePageTest(){
         System.out.println("home page");
     }
-    @Test
+    @Test (dependsOnMethods = "homePageTest")
     public void searchTest(){
         System.out.println("search test");
         Assert.assertTrue(false);

@@ -7,7 +7,7 @@ public class ConfigReader {
     //    this class is used for reading configuration.properties file
     private static Properties properties;
 
-    //    static block is used for pre-requisites
+    //    Create static block => static block is called before everything in that class .. is used to run pre-requisites
     static {
         String path = "configuration.properties";
         try {
@@ -19,7 +19,7 @@ public class ConfigReader {
             e.printStackTrace();
         }
     }
-    //    this method accepts KEY returns VALUE. Eg :ConfigReader.getProperty(amazon_url); => https://www.amazon.com
+    //    this method accepts KEY returns VALUE. Eg :ConfigReader.getProperty(amazon_url); returns value => https://www.amazon.com
     public static String getProperty(String key){
         String value = properties.getProperty(key);
         return value;

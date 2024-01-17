@@ -10,11 +10,11 @@ import org.openqa.selenium.safari.SafariDriver;
 import org.openqa.selenium.support.ThreadGuard;
 import java.time.Duration;
 /*
-NOTE: all of our current codes still works, because this driver is class is good for squential and parallel testing
+NOTE: all of our current codes still works, because this driver class is good for sequential and parallel testing
  */
 public class Driver {
     private Driver(){}
-    //    private static WebDriver driver;
+//    private static WebDriver driver;
 //    1. Use ThreadLocal WebDriver for parallel testing.
 //    Type of the driver is still WebDriver, but this driver is now ThreadLocal
 //    driver is thread safe variable to make sure each thread can create a copy of its own driver instance
