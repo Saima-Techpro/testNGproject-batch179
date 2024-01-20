@@ -47,21 +47,17 @@ public class Day15_US100201_Admin_Login {
     @Test
     public void admin_Login_WithResuableMethods(){
 //    Given user is on the application home page
-//        Driver.getDriver().get("https://www.bluerentalcars.com/");
+
         // Dynamic way
         Driver.getDriver().get(ConfigReader.getProperty("rentalcar_url"));
 
 //    Then clicks on login link
         RentalCar_HomePage rentalCarHomePage = new RentalCar_HomePage(); // create the page object
-//        rentalCarHomePage.loginButton.click();
-//        WaitUtils.waitFor(2);
-
         // USING REUSABLE METHOD
         BrowserUtils.clickWithTimeOut(rentalCarHomePage.loginButton, 2);
 
 //    Then enters admin email, password
         RentalCar_LoginPage rentalCarLoginPage = new RentalCar_LoginPage(); // create the page object
-//        rentalCarLoginPage.email.sendKeys("jack1@gmail.com");
 //        rentalCarLoginPage.email.sendKeys(ConfigReader.getProperty("admin_email")); // DYNAMIC WAY
 //        WaitUtils.waitFor(2);
         // USING REUSABLE METHOD
@@ -69,18 +65,10 @@ public class Day15_US100201_Admin_Login {
         // OR
         BrowserUtils.sendKeysWithTimeout(rentalCarLoginPage.email, ConfigReader.getProperty("admin_email"), 2);
 
-//        rentalCarLoginPage.password.sendKeys("12345");
-//        rentalCarLoginPage.password.sendKeys(ConfigReader.getProperty("admin_password")); // DYNAMIC WAY
-//        WaitUtils.waitFor(2);
-
         // USING REUSABLE METHOD
 //        BrowserUtils.sendKeysWithTimeout(rentalCarLoginPage.password, "12345", 2);
         // OR
         BrowserUtils.sendKeysWithTimeout(rentalCarLoginPage.password, ConfigReader.getProperty("admin_password"), 2);
-
-//    Then click on login button
-//        rentalCarLoginPage.loginButton.click();
-//        WaitUtils.waitFor(2);
 
         // USING REUSABLE METHOD
         BrowserUtils.clickWithTimeOut(rentalCarLoginPage.loginButton, 2);

@@ -16,7 +16,7 @@ public class Driver1 {
     private static WebDriver driver;
 
     public static WebDriver getDriver(){
-        if (driver==null) { //if driver is not in use(driver==null), there create a new driver. otherwise just return the  same driver
+        if (driver==null) { //if driver is not in use(driver==null), then create a new driver. otherwise just return the  same driver
             switch (ConfigReader.getProperty("browser")) {
                 case "chrome":
                     WebDriverManager.chromedriver().setup();

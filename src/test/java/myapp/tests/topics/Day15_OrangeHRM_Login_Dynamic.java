@@ -7,10 +7,9 @@ import myapp.utilities.BrowserUtils;
 import myapp.utilities.ConfigReader;
 import myapp.utilities.Driver;
 import myapp.utilities.WaitUtils;
-import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class Day15_OrangeHRM_Login {
+public class Day15_OrangeHRM_Login_Dynamic {
 //    Automate login functionality, using page object model
 //    https://opensource-demo.orangehrmlive.com/web/index.php/auth/login
 //
@@ -24,33 +23,31 @@ public class Day15_OrangeHRM_Login {
     public void orangeLoginTest(){
 
         //    Given user is the application login page
-         Driver.getDriver().get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
+        //  Dynamic => we use ConfigReader
+        Driver.getDriver().get(ConfigReader.getProperty("hrm_url"));
         WaitUtils.waitFor(2);  // HARD WAIT
 
         //  Then enter the credentials
         // In order to access the webElements located in OrangeLogingPage, we have to create its object
         OrangeLoginPage orangeLoginPage = new OrangeLoginPage();  // creating the page object
-//        orangeLoginPage.userName.sendKeys("Admin");
-//        orangeLoginPage.password.sendKeys("admin123");
-//        orangeLoginPage.loginButton.click();
-        // OR using PAGE SPECIFIC REUSABLE METHOD
+
+        //  using PAGE SPECIFIC REUSABLE METHOD
         orangeLoginPage.login("Admin", "admin123");
         WaitUtils.waitFor(2);
 
         //    Then verify the login is successful
         OrangeDashboardPage orangeDashboardPage = new OrangeDashboardPage(); // creating the page object
-        Assert.assertTrue(orangeDashboardPage.profileLink.isDisplayed());
-        WaitUtils.waitFor(2);
 
+//      Use Reusable Method - RECOMMENDED
+        BrowserUtils.verifyElementDisplayed(orangeDashboardPage.profileLink);
 
         //    And logout the application
-        orangeDashboardPage.profileLink.click();
-        orangeDashboardPage.logoutButton.click();
-        WaitUtils.waitFor(2);
+
+        BrowserUtils.clickWithTimeOut(orangeDashboardPage.profileLink, 5);  // dynamic custom method
+        BrowserUtils.clickWithTimeOut(orangeDashboardPage.logoutButton, 5);  // dynamic custom method
 
         //    Then verify the logout is successful
-        Assert.assertTrue(orangeLoginPage.userName.isDisplayed());
-        WaitUtils.waitFor(2);
+        BrowserUtils.verifyElementDisplayed(orangeLoginPage.userName);  //      Use Reusable Method - RECOMMENDED
 
 //        NOTE: WE DON'T GET StaleElementReferenceException IN PAGE OBJECT MODEL
 
