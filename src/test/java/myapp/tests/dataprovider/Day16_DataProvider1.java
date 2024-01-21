@@ -47,14 +47,19 @@ public class Day16_DataProvider1 {
     // NOTE: We can store DataProvider methods in UTILS class to implement DRY rule!
     // If the data is coming from a different class, we need to provide the address/name of the class as well
 
-    // Get the data from Excel data provider stored in Utils Class
-    // FLow of the data => excel -> data provider method -> test method
-
     // Test Method 3
     @Test(dataProvider = "employeeCredentialsProvider", dataProviderClass = DataProviderUtils.class)
     public void test3(String email, String password){
         System.out.println("Email: "+email + " | Password: "+ password);
     }
 
+
+    // Test Method 4  => the best => because the data is coming from Excel to DataProvider method
+    // Get the data from Excel data provider stored in Utils Class
+    // FLow of the data => excel -> data provider method -> test method
+    @Test(dataProvider = "excelEmployeeData", dataProviderClass = DataProviderUtils.class)
+    public void test4(String email, String password){
+        System.out.println("Email: "+email + " | Password: "+ password);
+    }
 
 }
