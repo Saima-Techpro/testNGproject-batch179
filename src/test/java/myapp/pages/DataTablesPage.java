@@ -39,7 +39,7 @@ public class DataTablesPage {
     public WebElement searchBox;
 
     @FindBy(xpath = "//td[@class='sorting_1']")
-    public WebElement nameSearch;
+    public WebElement nameField;
 
 
 

@@ -1,6 +1,7 @@
 package myapp.tests.excelautomation;
 
 import myapp.pages.DataTablesPage;
+import myapp.utilities.ConfigReader;
 import myapp.utilities.Driver;
 import myapp.utilities.ExcelUtils;
 import myapp.utilities.WaitUtils;
@@ -12,15 +13,16 @@ import java.util.Map;
 
 public class Day16_ExcelLogin {
     DataTablesPage dataTablesPage;
-    ExcelUtils excelUtils;
+    ExcelUtils excelUtils;  // to access ExcelUtils objects and methods
 
-    List<Map<String, String>> dataList;
+    List<Map<String, String>> dataList;  // this list container will hold the Excel data
 
     // WITHOUT EXCEL
     @Test
     public void excelTest(){
 //        When user go to https://editor.datatables.net/
-        Driver.getDriver().get("https://editor.datatables.net/");
+//        Driver.getDriver().get("https://editor.datatables.net/");
+        Driver.getDriver().get(ConfigReader.getProperty("dataTables_url"));
 //        Click on the new button
         dataTablesPage = new DataTablesPage(); // Creating the page object
         dataTablesPage.newButton.click();
@@ -47,7 +49,7 @@ public class Day16_ExcelLogin {
         dataTablesPage.searchBox.sendKeys("john");
         WaitUtils.waitFor(1);
 //        Then verify the name field contains first name
-        Assert.assertTrue(dataTablesPage.nameSearch.getText().contains("john"));
+        Assert.assertTrue(dataTablesPage.nameField.getText().contains("john"));
         WaitUtils.waitFor(1);
 
         // Close the driver
@@ -58,23 +60,26 @@ public class Day16_ExcelLogin {
     // WITH EXCEL
     @Test
     public void excelTest2(){
+//        path of the Excel sheet
         String pathOfExcel = "./resources/data_sheet.xlsx";
-        excelUtils = new ExcelUtils(pathOfExcel, "user_data" ); // INSTANTIATE THE PAGE
+//        INSTANTIATE THE PAGE
+        excelUtils = new ExcelUtils(pathOfExcel, "user_data" );
 
         // Call reusable method to get the data form the Excel sheet
         dataList = excelUtils.getDataList();
-        System.out.println(dataList);
+        System.out.println(dataList);  // to see the data sets
 
-        // LOOP
-        for (Map<String, String> eachData : dataList ){
+        // LOOP BEGINS
+        for (Map<String, String> eachData : dataList ){  // eachData is a MAP
             //        When user go to https://editor.datatables.net/
-            Driver.getDriver().get("https://editor.datatables.net/");
+//            Driver.getDriver().get("https://editor.datatables.net/");
+            Driver.getDriver().get(ConfigReader.getProperty("dataTables_url"));
 //        Click on the new button
             dataTablesPage = new DataTablesPage(); // Creating the page object
             dataTablesPage.newButton.click();
             WaitUtils.waitFor(1);
 //        When user enters all fields
-            dataTablesPage.firstName.sendKeys(eachData.get("first_name"));
+            dataTablesPage.firstName.sendKeys(eachData.get("first_name"));  // eachData is a MAP so we can use get()
             WaitUtils.waitFor(1);
             dataTablesPage.lastName.sendKeys(eachData.get("last_name"));
             WaitUtils.waitFor(1);
@@ -95,11 +100,13 @@ public class Day16_ExcelLogin {
             dataTablesPage.searchBox.sendKeys(eachData.get("first_name"));
             WaitUtils.waitFor(1);
 //        Then verify the name field contains first name
-            Assert.assertTrue(dataTablesPage.nameSearch.getText().contains(eachData.get("first_name")));
+            Assert.assertTrue(dataTablesPage.nameField.getText().contains(eachData.get("first_name")));
             WaitUtils.waitFor(1);
 
             System.out.println(eachData);
         }
+
+        // LOOP ENDS
 
         // Close the driver
         Driver.closeDriver();

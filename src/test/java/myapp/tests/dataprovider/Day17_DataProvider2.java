@@ -66,7 +66,7 @@ public class Day17_DataProvider2 {
         WaitUtils.waitFor(1);
 //        Then verify the name fields contains first name
 //        Assert.assertTrue(dataTablesPage.nameField.getText().contains(eachData.get("first_name")));
-        Assert.assertTrue(dataTablesPage.nameSearch.getText().contains(firstName));
+        Assert.assertTrue(dataTablesPage.nameField.getText().contains(firstName));
         WaitUtils.waitFor(1);
     }
 }
