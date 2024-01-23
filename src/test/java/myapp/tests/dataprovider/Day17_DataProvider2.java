@@ -8,9 +8,18 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class Day17_DataProvider2 {
-    DataTablesPage dataTablesPage;
 
-    @Test(dataProvider = "dataTablesData",dataProviderClass = DataProviderUtils.class)
+    /*
+    PLAN:
+        1. create a data provider source in Utils that will take data from user_data sheet
+        2. connect this test method to the data provider using  dataProvider and dataProviderClass
+        3. complete your test case with the data that comes from the excel
+        NOTE: try using existing code that might help. we will use userCreationWithExcel test method
+
+         */
+    DataTablesPage dataTablesPage;  // Create PAGE OBJECT
+
+    @Test(dataProvider = "dataTablesData", dataProviderClass = DataProviderUtils.class)
     public void userCreatingWithDataProvider(
             String firstName,
             String lastName,
@@ -20,12 +29,7 @@ public class Day17_DataProvider2 {
             String startDate,
             String salary
     ){
-        /*
-        1. create a data provider source in utils that will take data from user_data sheet
-        2. connect this test method to the data provider using  dataProvider and dataProviderClass
-        3. complete your test case with the data that comes from the excel
-        NOTE: try using existing code that might help. we will use userCreationWithExcel test method
-         */
+
 //        When user go to  https://editor.datatables.net/
         Driver.getDriver().get("https://editor.datatables.net/");
 //        Click on the new button
@@ -35,7 +39,7 @@ public class Day17_DataProvider2 {
         WaitUtils.waitFor(1);
 //        When user enters all fields
 //        dataTablesPage.firstName.sendKeys(eachData.get("first_name"));
-//        REPLACE eachData.get("first_name") WITH firstName
+//        REPLACE eachData.get("first_name") WITH firstName coming as parameter
         dataTablesPage.firstName.sendKeys(firstName);
 
         WaitUtils.waitFor(1);
@@ -68,5 +72,7 @@ public class Day17_DataProvider2 {
 //        Assert.assertTrue(dataTablesPage.nameField.getText().contains(eachData.get("first_name")));
         Assert.assertTrue(dataTablesPage.nameField.getText().contains(firstName));
         WaitUtils.waitFor(1);
+//        Close driver
+        Driver.closeDriver();
     }
 }

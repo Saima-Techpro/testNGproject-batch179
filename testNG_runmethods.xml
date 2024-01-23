@@ -30,3 +30,11 @@
         </classes>
     </test>
 </suite>
+
+        <!--
+                1. xml files are used to run test cases
+                2. suite > test > packages > groups > classes > methods
+                3. verbose is the amount of info we see on the console. the bigger the more info.
+                4. SAVE the xml files after every change. control +s OR command +s
+                5. if the path is NOT correct then we see No tests were found error message
+                -->

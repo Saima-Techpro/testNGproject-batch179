@@ -18,7 +18,7 @@ public class Day16_ExcelLogin {
     List<Map<String, String>> dataList;  // this list container will hold the Excel data
 
     // WITHOUT EXCEL
-    @Test
+    @Test (groups = "minor_regression_group")
     public void excelTest(){
 //        When user go to https://editor.datatables.net/
 //        Driver.getDriver().get("https://editor.datatables.net/");

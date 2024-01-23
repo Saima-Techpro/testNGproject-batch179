@@ -15,7 +15,7 @@ public class Day15_US100201_Admin_Login {
 //    Admin password: 12345
 
 
-    @Test
+    @Test (groups = "minor_regression_group")
     public void admin_Login(){
 //    Given user is on the application home page
         Driver.getDriver().get("https://www.bluerentalcars.com/");

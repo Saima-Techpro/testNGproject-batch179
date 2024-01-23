@@ -38,7 +38,7 @@ public class Day16_DataProvider1 {
 //    }
 
     // Test Method 2
-    @Test(dataProvider = "manager_credentials" ) // calling with custom name used for the DataProvider method
+    @Test(dataProvider = "manager_credentials" , groups = "minor_regression_group") // calling with custom name used for the DataProvider method
     public void test2(String userName, String password, String title, String age){
         System.out.println("Username: "+userName+ " | Password: "+password+ " | Title: "+title+ " | Age: "+age);
 
