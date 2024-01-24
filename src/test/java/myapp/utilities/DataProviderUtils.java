@@ -26,7 +26,7 @@ public class DataProviderUtils {
     }
 
     //    Data Provider to get the user credentials from the EXCEL SHEET (for Day17_DataProvider2 class)
-    @DataProvider
+    @DataProvider (parallel = true)   // for parallel testing => (parallel = true)
     public Object[][] dataTablesData(){
         String excelPath = "./resources/data_sheet.xlsx";
         String sheetName = "user_data";

@@ -7,3 +7,5 @@
         </packages>
     </test>
 </suite>
+
+        <!-- you can choose parallel="methods" if you want to do parallel testing on methods level-->

@@ -32,7 +32,7 @@ public class ListenerUtils implements ITestListener, IRetryAnalyzer, IAnnotation
     }
     @Override
     public void onTestFailure(ITestResult result) {
-//        System.out.println("onTestFailed : executes ONLY AFTER EACH FAILED test cases(@Test)"+result.getName());
+       System.out.println("onTestFailed : executes ONLY AFTER EACH FAILED test cases(@Test)"+result.getName());
 //        We want ot take a screenshot after test failures
         try {
             MediaUtils.takeScreenshotOfTheEntirePage();

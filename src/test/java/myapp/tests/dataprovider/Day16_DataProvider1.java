@@ -14,7 +14,7 @@ public class Day16_DataProvider1 {
     }
 
     // Test Method 1  (Connect the test method with dataProvider method using the method name)
-    @Test(dataProvider = "productListProvider" )
+    @Test(dataProvider = "productListProvider")
     public void test(String eachData){
         System.out.println(eachData);
     }
