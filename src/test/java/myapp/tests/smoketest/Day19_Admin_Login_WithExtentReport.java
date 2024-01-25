@@ -1,7 +1,7 @@
 package myapp.tests.smoketest;
 
-import myapp.pages.RentalCar_HomePage;
-import myapp.pages.RentalCar_LoginPage;
+import myapp.pages.BlueRental_HomePage;
+import myapp.pages.BlueRental_LoginPage;
 import myapp.utilities.*;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -28,12 +28,12 @@ public class Day19_Admin_Login_WithExtentReport {
         ExtentReportUtils.pass("User is on the HomePage");
 
 //    Then clicks on login link
-        RentalCar_HomePage rentalCarHomePage = new RentalCar_HomePage(); // create the page object
+        BlueRental_HomePage rentalCarHomePage = new BlueRental_HomePage(); // create the page object
         // USING REUSABLE METHOD
-        BrowserUtils.clickWithTimeOut(rentalCarHomePage.loginButton, 2);
+        BrowserUtils.clickWithTimeOut(rentalCarHomePage.userIcon, 2);
         ExtentReportUtils.pass("User is able to click on the login button");
 //    Then enters admin email, password
-        RentalCar_LoginPage rentalCarLoginPage = new RentalCar_LoginPage(); // create the page object
+        BlueRental_LoginPage rentalCarLoginPage = new BlueRental_LoginPage(); // create the page object
         BrowserUtils.sendKeysWithTimeout(rentalCarLoginPage.email, ConfigReader.getProperty("admin_email"), 2);
         // USING REUSABLE METHOD
         BrowserUtils.sendKeysWithTimeout(rentalCarLoginPage.password, ConfigReader.getProperty("admin_password"), 2);
