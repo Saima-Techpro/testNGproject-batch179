@@ -2,10 +2,7 @@ package myapp.tests.smoketest;
 
 import myapp.pages.BlueRental_HomePage;
 import myapp.pages.BlueRental_LoginPage;
-import myapp.utilities.BrowserUtils;
-import myapp.utilities.ConfigReader;
-import myapp.utilities.Driver;
-import myapp.utilities.WaitUtils;
+import myapp.utilities.*;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 

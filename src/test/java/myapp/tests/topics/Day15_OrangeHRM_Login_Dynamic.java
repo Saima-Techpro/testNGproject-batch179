@@ -5,7 +5,7 @@ import myapp.pages.OrangeDashboardPage;
 import myapp.pages.OrangeLoginPage;
 import myapp.utilities.BrowserUtils;
 import myapp.utilities.ConfigReader;
-import myapp.utilities.Driver;
+import myapp.utilities.Driver1;
 import myapp.utilities.WaitUtils;
 import org.testng.annotations.Test;
 
@@ -24,7 +24,7 @@ public class Day15_OrangeHRM_Login_Dynamic {
 
         //    Given user is the application login page
         //  Dynamic => we use ConfigReader
-        Driver.getDriver().get(ConfigReader.getProperty("hrm_url"));
+        Driver1.getDriver().get(ConfigReader.getProperty("hrm_url"));
         WaitUtils.waitFor(2);  // HARD WAIT
 
         //  Then enter the credentials
@@ -52,7 +52,7 @@ public class Day15_OrangeHRM_Login_Dynamic {
 //        NOTE: WE DON'T GET StaleElementReferenceException IN PAGE OBJECT MODEL
 
         // Close the driver
-        Driver.closeDriver();
+        Driver1.closeDriver();
 
     }
 

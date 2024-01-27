@@ -1,11 +1,9 @@
 package myapp.tests.listeners;
 
-import myapp.utilities.Driver;
+import myapp.utilities.Driver1;
 import org.openqa.selenium.By;
-import org.openqa.selenium.NoSuchElementException;
 import org.testng.Assert;
 import org.testng.SkipException;
-import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 /*
@@ -19,16 +17,16 @@ import org.testng.annotations.Test;
 public class Day18_ListenersTest {
     @Test
     public void test1(){
-        Driver.getDriver().get("https://techproeducation.com/");
-        String title = Driver.getDriver().getTitle();
+        Driver1.getDriver().get("https://techproeducation.com/");
+        String title = Driver1.getDriver().getTitle();
         System.out.println("title = " + title);
         Assert.assertTrue(title.contains("TechPro Education IT Programs")); // pass
     }
     @Test
     public void test2() {
-        Driver.getDriver().get("https://amazon.com/");
-        Driver.getDriver().navigate().refresh();
-        String title = Driver.getDriver().getTitle();
+        Driver1.getDriver().get("https://amazon.com/");
+        Driver1.getDriver().navigate().refresh();
+        String title = Driver1.getDriver().getTitle();
         System.out.println("title = " + title);
         Assert.assertTrue(title.contains("amazon"));  // fails
     }
@@ -41,9 +39,9 @@ public class Day18_ListenersTest {
     @Test
     public void test4(){
         System.out.println("THROW NoSuchElementException");
-        Driver.getDriver().get("https://www.google.com");
-        Driver.getDriver().navigate().refresh();
-        Driver.getDriver().findElement(By.id("wrong-id"));//throw NoSuchElementException
+        Driver1.getDriver().get("https://www.google.com");
+        Driver1.getDriver().navigate().refresh();
+        Driver1.getDriver().findElement(By.id("wrong-id"));//throw NoSuchElementException
 //        throw new NoSuchElementException("No Such Exception on Purpose");
     }
 

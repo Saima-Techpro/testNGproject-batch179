@@ -2,7 +2,7 @@ package myapp.tests.excelautomation;
 
 import myapp.pages.DataTablesPage;
 import myapp.utilities.ConfigReader;
-import myapp.utilities.Driver;
+import myapp.utilities.Driver1;
 import myapp.utilities.ExcelUtils;
 import myapp.utilities.WaitUtils;
 import org.testng.Assert;
@@ -22,7 +22,7 @@ public class Day16_ExcelLogin {
     public void excelTest(){
 //        When user go to https://editor.datatables.net/
 //        Driver.getDriver().get("https://editor.datatables.net/");
-        Driver.getDriver().get(ConfigReader.getProperty("dataTables_url"));
+        Driver1.getDriver().get(ConfigReader.getProperty("dataTables_url"));
 //        Click on the new button
         dataTablesPage = new DataTablesPage(); // Creating the page object
         dataTablesPage.newButton.click();
@@ -53,7 +53,7 @@ public class Day16_ExcelLogin {
         WaitUtils.waitFor(1);
 
         // Close the driver
-        Driver.closeDriver();
+        Driver1.closeDriver();
 
     }
 
@@ -73,7 +73,7 @@ public class Day16_ExcelLogin {
         for (Map<String, String> eachData : dataList ){  // eachData is a MAP
             //        When user go to https://editor.datatables.net/
 //            Driver.getDriver().get("https://editor.datatables.net/");
-            Driver.getDriver().get(ConfigReader.getProperty("dataTables_url"));
+            Driver1.getDriver().get(ConfigReader.getProperty("dataTables_url"));
 //        Click on the new button
             dataTablesPage = new DataTablesPage(); // Creating the page object
             dataTablesPage.newButton.click();
@@ -109,7 +109,7 @@ public class Day16_ExcelLogin {
         // LOOP ENDS
 
         // Close the driver
-        Driver.closeDriver();
+        Driver1.closeDriver();
 
     }
 

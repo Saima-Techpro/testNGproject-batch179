@@ -6,10 +6,7 @@ import myapp.utilities.*;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import java.util.List;
-import java.util.Map;
-
-public class BlueRental_LoginWithExcel {
+public class BlueRental_LoginWithDataProvider {
 
 //    HW:
 //    Test the log in functionality of the application with different user profiles (admin, manager, customer services, end user)
@@ -18,44 +15,7 @@ public class BlueRental_LoginWithExcel {
 
     BlueRental_HomePage blueRentalHomePage = new BlueRental_HomePage();
     BlueRental_LoginPage blueRentalLoginPage =new BlueRental_LoginPage();
-    String pathOfExcel="./resources/data_sheet.xlsx";
 
-    String sheetName = "admin_credentials";
-
-
-    @Test
-    public void loginWithExcelTest(){
-
-        ExcelUtils excelUtils=new ExcelUtils(pathOfExcel, sheetName);
-
-
-        List<Map<String,String>> listOfData =excelUtils.getDataList();
-        System.out.println("listOfData = " + listOfData);
-
-        Map<String,String> data1 = listOfData.get(0);
-        System.out.println("data1 = " + data1);
-
-        String lastData1 = data1.get("password").replaceAll("[.0]","");
-        System.out.println("lastData1 = " + lastData1);
-
-        String lastData2 = data1.get("username");
-        System.out.println("lastData2 = " + lastData2);
-
-        Driver.getDriver().get("https://www.bluerentalcars.com/");
-
-        BrowserUtils.clickWithTimeOut(blueRentalHomePage.userIcon, 1);
-
-        BrowserUtils.sendKeysWithTimeout(blueRentalLoginPage.email,lastData2,1);
-
-        BrowserUtils.sendKeysWithTimeout(blueRentalLoginPage.password,lastData1,1);
-
-        BrowserUtils.clickWithTimeOut(blueRentalLoginPage.loginButton,1);
-
-        Assert.assertEquals(blueRentalLoginPage.dropDown.getText(), "Jack Nickolson");
-
-//        Driver.closeDriver();
-
-    }
 
     // WITH DATAPROVIDER
     @Test (dataProvider = "adminData", dataProviderClass = DataProviderUtils.class)
@@ -75,7 +35,7 @@ public class BlueRental_LoginWithExcel {
         WaitUtils.waitFor(1);
         Assert.assertEquals(blueRentalLoginPage.dropDown.getText(), "Jack Nickolson");
 
-//        Driver.closeDriver();
+        Driver.closeDriver();
     }
 
 }

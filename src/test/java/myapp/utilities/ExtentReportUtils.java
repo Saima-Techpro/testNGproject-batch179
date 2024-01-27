@@ -19,7 +19,7 @@ public class ExtentReportUtils {
 //        WHAT WILL BE REPORT NAME AND WHERE THE REPORT IS CREATED
 //        PATH
         String now = new SimpleDateFormat("yyyyMMddhhmmss").format(new Date());
-        String path = System.getProperty("user.dir")+"/test-output/Reports/"+now+"extent_reports.html";
+        String path = System.getProperty("user.dir")+"/test-output/Reports/"+now+"extent_spark_reports.html";
 //        Create the HTML template using extent spark reporter in the path
         extentSparkReporter = new ExtentSparkReporter(path);
 //        Create extent report

@@ -10,21 +10,21 @@ public class JSUtils {
   scrolls into that element
    */
     public static void JSscrollIntoView(WebElement element){
-        JavascriptExecutor js = (JavascriptExecutor) Driver.getDriver();
+        JavascriptExecutor js = (JavascriptExecutor) Driver1.getDriver();
         js.executeScript("arguments[0].scrollIntoView(true);",element);
     }
     /*
     scroll all the way down
      */
     public static void JSscrollAllTheWayDown(){
-        JavascriptExecutor js = (JavascriptExecutor) Driver.getDriver();
+        JavascriptExecutor js = (JavascriptExecutor) Driver1.getDriver();
         js.executeScript("window.scrollTo(0,document.body.scrollHeight)");
     }
     /*
     scroll all the way up
      */
     public static void JSscrollAllTheWayUp(){
-        JavascriptExecutor js = (JavascriptExecutor) Driver.getDriver();
+        JavascriptExecutor js = (JavascriptExecutor) Driver1.getDriver();
         js.executeScript("window.scrollTo(0,-document.body.scrollHeight)");
     }
     /*
@@ -33,8 +33,8 @@ public class JSUtils {
      */
     //    EXPLICITLY WAIT FOR ELEMENT TO BE VISIBLE, SCROLL INTO THE ELEMENT, THEN CLICK BY JS
     public static void JSclickWithTimeout(WebElement element) {
-        ((JavascriptExecutor) Driver.getDriver()).executeScript("arguments[0].scrollIntoView(true);", WaitUtils.waitForVisibility(element,5));
-        ((JavascriptExecutor) Driver.getDriver()).executeScript("arguments[0].click();", element);
+        ((JavascriptExecutor) Driver1.getDriver()).executeScript("arguments[0].scrollIntoView(true);", WaitUtils.waitForVisibility(element,5));
+        ((JavascriptExecutor) Driver1.getDriver()).executeScript("arguments[0].click();", element);
     }
     /*
    @param String id of teh webelement that we want to locate
@@ -43,7 +43,7 @@ public class JSUtils {
    Note that this is NOT common and we should use 8 locators that we learned in selenium
     */
     public WebElement JSlocateElements(String idOfElement){
-        JavascriptExecutor js = (JavascriptExecutor) Driver.getDriver();
+        JavascriptExecutor js = (JavascriptExecutor) Driver1.getDriver();
         return ((WebElement)js.executeScript("return document.getElementById('"+idOfElement+"')"));
     }
     /*
@@ -51,14 +51,14 @@ public class JSUtils {
     type the string in that web element
      */
     public static void JSsetValueBy(WebElement inputElement,String text){
-        JavascriptExecutor js = (JavascriptExecutor) Driver.getDriver();
+        JavascriptExecutor js = (JavascriptExecutor) Driver1.getDriver();
         js.executeScript("arguments[0].setAttribute('value','"+text+"')",inputElement);
     }
     /*
     param : Id of the element
      */
     public static String JSgetValueBy(String idOfElement){
-        JavascriptExecutor js = (JavascriptExecutor)Driver.getDriver();
+        JavascriptExecutor js = (JavascriptExecutor) Driver1.getDriver();
         String value=js.executeScript("return document.getElementById('"+idOfElement+"').value").toString();
         System.out.println(value);
         return value;

@@ -18,7 +18,7 @@ public class WaitUtils {
         };
         try {
             System.out.println("Waiting for page to load...");
-            WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(timeout));
+            WebDriverWait wait = new WebDriverWait(Driver1.getDriver(), Duration.ofSeconds(timeout));
             wait.until(expectation);
         } catch (Throwable error) {
             System.out.println(
@@ -28,7 +28,7 @@ public class WaitUtils {
     //======Fluent Wait====
     // params : xpath of teh element , max timeout in seconds, polling in second
     public static WebElement fluentWait(String xpath, int withTimeout, int pollingEvery) {
-        FluentWait<WebDriver> wait = new FluentWait<WebDriver>(Driver.getDriver())
+        FluentWait<WebDriver> wait = new FluentWait<WebDriver>(Driver1.getDriver())
                 .withTimeout(Duration.ofSeconds(withTimeout))//Wait 3 second each time
                 .pollingEvery(Duration.ofSeconds(pollingEvery))//Check for the element every 1 second
                 .withMessage("Ignoring No Such Element Exception")
@@ -52,19 +52,19 @@ public class WaitUtils {
     //    DYNAMIC SELENIUM WAITS:
     //===============Explicit Wait==============//
     public static WebElement waitForVisibility(WebElement element, int timeout) {
-        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(timeout));
+        WebDriverWait wait = new WebDriverWait(Driver1.getDriver(), Duration.ofSeconds(timeout));
         return wait.until(ExpectedConditions.visibilityOf(element));
     }
     public static WebElement waitForVisibility(By locator, int timeout) {
-        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(timeout));
+        WebDriverWait wait = new WebDriverWait(Driver1.getDriver(), Duration.ofSeconds(timeout));
         return wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
     }
     public static WebElement waitForClickablility(WebElement element, int timeout) {
-        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(timeout));
+        WebDriverWait wait = new WebDriverWait(Driver1.getDriver(), Duration.ofSeconds(timeout));
         return wait.until(ExpectedConditions.elementToBeClickable(element));
     }
     public static WebElement waitForClickablility(By locator, int timeout) {
-        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(timeout));
+        WebDriverWait wait = new WebDriverWait(Driver1.getDriver(), Duration.ofSeconds(timeout));
         return wait.until(ExpectedConditions.elementToBeClickable(locator));
     }
 }

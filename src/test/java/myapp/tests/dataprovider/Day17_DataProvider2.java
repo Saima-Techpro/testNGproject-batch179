@@ -3,6 +3,7 @@ package myapp.tests.dataprovider;
 import myapp.pages.DataTablesPage;
 import myapp.utilities.DataProviderUtils;
 import myapp.utilities.Driver;
+
 import myapp.utilities.WaitUtils;
 import org.testng.Assert;
 import org.testng.annotations.Test;

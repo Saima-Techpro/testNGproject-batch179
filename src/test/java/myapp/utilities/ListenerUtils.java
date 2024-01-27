@@ -36,7 +36,9 @@ public class ListenerUtils implements ITestListener, IRetryAnalyzer, IAnnotation
 //        We want ot take a screenshot after test failures
         try {
             MediaUtils.takeScreenshotOfTheEntirePage();
+            LoggerUtils.info("Test Case failed.. Screenshot is captured successfully!");
         } catch (IOException e) {
+            LoggerUtils.error("Test Case failed... but screenshot cann't be captured");
             throw new RuntimeException(e);
         }
     }

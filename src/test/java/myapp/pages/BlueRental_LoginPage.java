@@ -1,6 +1,6 @@
 package myapp.pages;
 
-import myapp.utilities.Driver;
+import myapp.utilities.Driver1;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -11,7 +11,7 @@ public class BlueRental_LoginPage {
     // 2. Locate and store webElements
 
     public BlueRental_LoginPage(){
-        PageFactory.initElements(Driver.getDriver(), this);
+        PageFactory.initElements(Driver1.getDriver(), this);
     }
 
     @FindBy(id = "formBasicEmail")

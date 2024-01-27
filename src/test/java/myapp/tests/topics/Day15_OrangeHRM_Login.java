@@ -3,9 +3,7 @@ package myapp.tests.topics;
 
 import myapp.pages.OrangeDashboardPage;
 import myapp.pages.OrangeLoginPage;
-import myapp.utilities.BrowserUtils;
-import myapp.utilities.ConfigReader;
-import myapp.utilities.Driver;
+import myapp.utilities.Driver1;
 import myapp.utilities.WaitUtils;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -24,7 +22,7 @@ public class Day15_OrangeHRM_Login {
     public void orangeLoginTest(){
 
         //    Given user is the application login page
-         Driver.getDriver().get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
+         Driver1.getDriver().get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
         WaitUtils.waitFor(2);  // HARD WAIT
 
         //  Then enter the credentials
@@ -55,7 +53,7 @@ public class Day15_OrangeHRM_Login {
 //        NOTE: WE DON'T GET StaleElementReferenceException IN PAGE OBJECT MODEL
 
         // Close the driver
-        Driver.closeDriver();
+        Driver1.closeDriver();
 
     }
 

@@ -2,11 +2,7 @@ package myapp.homeworks;
 
 import myapp.pages.BlueRental_HomePage;
 import myapp.pages.BlueRental_LoginPage;
-import myapp.utilities.BrowserUtils;
-import myapp.utilities.ConfigReader;
-import myapp.utilities.Driver;
-import myapp.utilities.WaitUtils;
-import org.openqa.selenium.Keys;
+import myapp.utilities.*;
 import org.testng.annotations.Test;
 
 public class BlueRental_NegativeTests {
@@ -14,6 +10,7 @@ public class BlueRental_NegativeTests {
     BlueRental_LoginPage blueRental_loginPage = new BlueRental_LoginPage();
 
 
+    // FAKE EMAIL
     @Test
     public void negativeLoginTest() {
 
@@ -38,6 +35,8 @@ public class BlueRental_NegativeTests {
         Driver.closeDriver();
     }
 
+
+//    CORRECT email address but INCORRECT password
     @Test
     public void badCredentialTest() {
 
@@ -61,6 +60,7 @@ public class BlueRental_NegativeTests {
         Driver.closeDriver();
     }
 
+//    INVALID email format
     @Test
     public void invalidEmailTest(){
 

@@ -16,7 +16,7 @@ public class MediaUtils {
   */
     public static void takeScreenshotOfTheEntirePage() throws IOException {
 //        1. TakeScreenShot class with getScreenShotAs method to capture the screenshot
-        File image = ((TakesScreenshot)Driver.getDriver()).getScreenshotAs(OutputType.FILE);
+        File image = ((TakesScreenshot) Driver1.getDriver()).getScreenshotAs(OutputType.FILE);
 //        2. Create a path to save the image
 //        Create a date for giving dynamic name otherwise the screenshots overrides
         String now = new SimpleDateFormat("yyyyMMddhhmmss").format(new Date());//getting local date in this format
@@ -43,7 +43,7 @@ public class MediaUtils {
      */
     public static String takeScreenshotOfTheEntirePageAsString() throws IOException {
         //        1. TakeScreenShot class with getScreenShotAs method to capture the screenshot
-        File image = ((TakesScreenshot)Driver.getDriver()).getScreenshotAs(OutputType.FILE);
+        File image = ((TakesScreenshot) Driver1.getDriver()).getScreenshotAs(OutputType.FILE);
         //        2. Create a path to save the image
         //        Create a date for giving dynamic name otherwise the screenshots overrides
         String now = new SimpleDateFormat("yyyyMMddhhmmss").format(new Date());//getting local date in this format

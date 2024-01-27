@@ -13,7 +13,7 @@ import java.time.Duration;
 NOTE: all of our current codes still works, because this driver class is good for sequential and parallel testing
  */
 public class Driver {
-   private Driver(){};   // private CONSTRUCTOR  => to prevent external instantiation
+   private Driver(){}   // private CONSTRUCTOR  => to prevent external instantiation
 //    private static WebDriver driver;  // we don't need this anymore
 //    1. Use ThreadLocal WebDriver for parallel testing.
 //    Type of the driver is still WebDriver, but this driver is now ThreadLocal
@@ -37,23 +37,28 @@ public class Driver {
             case "chrome":
                 WebDriverManager.chromedriver().setup();
 //                    driver=new ChromeDriver();
-                driver.set(ThreadGuard.protect(new ChromeDriver()));
+//                driver.set(ThreadGuard.protect(new ChromeDriver()));  if this causes any safety related issues, then use it without ThreadGuard.protect() method  => https://www.selenium.dev/documentation/webdriver/support_features/thread_guard/
+                driver.set(new ChromeDriver());
                 break;
             case "firefox":
                 WebDriverManager.firefoxdriver().setup();
-                driver.set(ThreadGuard.protect(new FirefoxDriver()));
+//                driver.set(ThreadGuard.protect(new FirefoxDriver()));
+                driver.set(new FirefoxDriver());
                 break;
             case "edge":
                 WebDriverManager.edgedriver().setup();
-                driver.set(ThreadGuard.protect(new EdgeDriver()));
+//                driver.set(ThreadGuard.protect(new EdgeDriver()))
+                driver.set(new EdgeDriver());
                 break;
             case "safari":
                 WebDriverManager.safaridriver().setup();
-                driver.set(ThreadGuard.protect(new SafariDriver()));
+//                driver.set(ThreadGuard.protect(new SafariDriver()));
+                driver.set(new SafariDriver());
                 break;
             case "chrome-headless":
                 WebDriverManager.chromedriver().setup();
-                driver.set(ThreadGuard.protect(new ChromeDriver(new ChromeOptions().addArguments("--headless=new"))));
+//                driver.set(ThreadGuard.protect(new ChromeDriver(new ChromeOptions().addArguments("--headless=new"))));
+                driver.set(new ChromeDriver(new ChromeOptions().addArguments("--headless=new")));
                 break;
         }
 //            driver -> driver.get()
@@ -63,7 +68,7 @@ public class Driver {
     }
     //    4. close driver
     public static void closeDriver(){
-        if (driver!=null){
+        if (driver.get()!=null){
             driver.get().quit();
             driver.remove();
         }
